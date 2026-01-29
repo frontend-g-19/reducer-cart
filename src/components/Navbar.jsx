@@ -6,7 +6,7 @@ import { Home } from "@mui/icons-material";
 
 export default function Navbar() {
   return (
-    <nav className="bg-red-800 fixed bottom-0 right-0 left-0 md:static">
+    <nav className="bg-red-800 fixed bottom-0 right-0 left-0 md:top-0 md:bottom-auto z-50">
       <div className="max-w-6xl mx-auto flex items-center justify-center md:justify-between py-5 px-5 lg:px-0">
         <Link to={"/"}>
           <h1 className="fixed bottom-16 left-36 bg-red-800 rounded-tl-full rounded-tr-full p-5 md:static text-2xl text-white">
