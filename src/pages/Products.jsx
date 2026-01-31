@@ -2,8 +2,14 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { products } from "../assets/data";
 import { Rating, Stack } from "@mui/material";
+import { useContext } from "react";
+import { FavoritesContext } from "../context/FavoritesContext";
 
 export default function Products() {
+  const { state, dispatch } = useContext(FavoritesContext);
+
+  const isLiked = (id) => state.favorites.some((item) => item.id === id);
+
   return (
     <div className="max-w-6xl mx-auto">
       <h1 className="md:hidden text-center py-5 text-2xl font-bold text-white bg-red-800">
@@ -15,8 +21,13 @@ export default function Products() {
             key={mahsulot.id}
             className="flex flex-col items-center relative gap-10 p-10 w-64 h-auto bg-white shadow-xl transition-all duration-300 hover:shadow-2xl rounded-2xl my-5"
           >
-            <button className="absolute border-2 p-2 rounded-full text-red-500 top-2 right-2 cursor-pointer">
-              <FavoriteBorderIcon />
+            <button
+              onClick={() =>
+                dispatch({ type: "TOGGLE_FAVORITE", payload: mahsulot })
+              }
+              className="absolute p-2 rounded-full top-2 right-2 text-red-600"
+            >
+              {isLiked(mahsulot.id) ? <FavoriteIcon /> : <FavoriteBorderIcon />}
             </button>
             <img src={mahsulot.image} alt={mahsulot.title} />
 
