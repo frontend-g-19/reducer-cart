@@ -46,7 +46,12 @@ export default function Products() {
                 />
               </Stack>
 
-              <button className="border-2 w-full my-10 text-red-800 rounded-lg text-lg cursor-pointer transition-all duration-200 active:scale-90">
+              <button
+                onClick={() =>
+                  dispatch({ type: "ADD_TO_CART", payload: mahsulot })
+                }
+                className="border-2 w-full my-10 text-red-800 rounded-lg text-lg cursor-pointer transition-all duration-200 active:scale-90"
+              >
                 add to cart
               </button>
               <p className="absolute bottom-0 left-0 px-5 py-2 text-white font-semibold rounded-bl-2xl bg-red-800">
