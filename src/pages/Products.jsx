@@ -3,10 +3,10 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { products } from "../assets/data";
 import { Rating, Stack } from "@mui/material";
 import { useContext } from "react";
-import { FavoritesContext } from "../context/FavoritesContext";
+import { Context } from "../context/Context";
 
 export default function Products() {
-  const { state, dispatch } = useContext(FavoritesContext);
+  const { state, dispatch } = useContext(Context);
 
   const isLiked = (id) => state.favorites.some((item) => item.id === id);
 

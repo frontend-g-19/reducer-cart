@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { FavoritesContext } from "../context/FavoritesContext";
+import { Context } from "../context/Context";
 import FavoriteCard from "../components/FavoriteCard";
 
 export default function Favorites() {
-  const { state, dispatch } = useContext(FavoritesContext);
+  const { state, dispatch } = useContext(Context);
 
   if (state.favorites.length === 0) {
     return (
